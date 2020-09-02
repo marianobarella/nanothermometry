@@ -1,19 +1,19 @@
 ## **Nanothermometry analysis pipeline**
 Welcome! In this repository you will find the code we developed to process the data presented in this [work](http://google.com)
 
-The analysis pipeline was designed for an implementation of the Anti-Stokes nanothermometry. The scripts presented here process hyperspectral images acquired with a custom-built confocal microscope. Each hyperspectral image is composed of `NxN` photoluminescence (PL) spectra acquired at a fixed wavelength range.
+The analysis pipeline was designed for an implementation of the Anti-Stokes nanothermometry. The scripts presented here process hyperspectral images acquired with a custom-built confocal microscope. Each hyperspectral image is composed of `NxN` photoluminescence (PL) spectra acquired at a specific spatial position of the sample, using the same wavelength range.
 
 ### The files
 Here you will find 4 kind of files:
 1. An **auxiliary** file which contains all the *small* functions needed to run the analysis. Filename: functions_for_photoluminescence.py
 2. Stand-alone scripts that account for each **step** of the analysis pipeline. Filename: stepX_KEYWORD_OF_THE_STEP.py
-3. The **main** script. Filename: find_beta_or_Tzero.py
+3. The **main** script. You should execute this script to analyze the data. Filename: find_beta_or_Tzero.py
 4. Definitions to **plot** some fancy graphics (matplotlib). Filename: for_confocal.mplstyle
 
 ### Organization
 The analysis pipeline code is organized as follows:
-+ The **main** script calls all steps. The order can't be altered. Step 0, must be executed before Step 1, 1 before 2, and so on...
-+ Once you have run Step 0, several files are created are saved (processed data). So next time you run the main script won't be neccesary to run Step 0 again. For instance, you can continue only with Step 1 (or 1 and 2, or 1, 2 and 3, etc.).
++ The **main** script calls all steps. The order can't be altered. Each step needs information that the previous one has created. Step 0, must be executed before Step 1, 1 before 2, and so on...
++ Once you have run Step 0, several new files are created (processed data). So next time you run the main script won't be neccesary to run Step 0 again. For instance, you can continue only with Step 1 (or 1 and 2, or 1, 2 and 3, etc.).
 + The keywords in the filename of the step scripts are self-explanatory. Inside each script some comments may you find. Variables name are also self-explanatory.
 + Step 4 is written to gather all saved data and to do some statistics. This step is not critical.
 
