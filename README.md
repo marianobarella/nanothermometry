@@ -14,12 +14,13 @@ Here you will find 4 kind of files:
 The analysis pipeline code is organized as follows:
 * The **main** script calls all steps. The order can't be altered. Each step needs information that the previous one has created. Step 0, must be executed before Step 1, 1 before 2, and so on...
 * Once you have run Step 0, several new files are created (processed data). So next time you run the main script won't be neccesary to run Step 0 again. For instance, you can continue only with Step 1 (or 1 and 2, or 1, 2 and 3, etc.)
-* The brief description in the filename of each step script is self-explanatory. Inside each script some comments may you find. Variables name are also self-explanatory
+* Although the filename of each step script is self-explanatory, here is a brief description of them:
   + Step 0 process the laser power monitor signal (optional), the first *fast* hyperspectral image (optional) and calculates the total irradiance
   + Step 1 process the *slow* hyperspectral image. This is the most imporante step: the `NxN` PL spectra are binned into `totalbins = 10` (just an example, you can change this number) to obtain a better signal-to-noise ratio. Also, irradiance for each bin is calculated
   + Step 2 uses the binned spectra to calculate the ratios betweeen the Anti-Stokes spectra. Fitting of this ratios yields the photothermal coefficient of the NP a.k.a., beta. One fit gives one beta. So multiple betas are obtained
   + Step 3 estimates a mean beta and calculates the temperature of the NP as a function of the incident irradiance
   + Step 4 is written to gather all saved data and to do some statistics. This step is optional, not critical
+* Inside each script some comments may you find regarding functionality or what each variable represents. Also the name of the variables is self-explanatory
 
 ### Input parameters
 The **main** script has several variables that determine the behavior of the code. These variables are passed to each step script. These variable are arguments for specific functions. Along with its value, inside a subfunction called `run_analysis` in the **main** script, you will find that each variable has a brief comment that explains its meaning. Examples of these variables are: `totalbins`, `image_size_px`, `camera_px_length`, etc...
