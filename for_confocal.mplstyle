@@ -1,0 +1,17 @@
+# Help at https://matplotlib.org/users/customizing.html
+axes.titlesize : 20
+axes.labelsize : 16
+lines.linewidth : 1.5
+lines.markersize : 5.0
+xtick.labelsize : 14
+ytick.labelsize : 14
+legend.fontsize : 11
+axes.grid       : True
+axes.axisbelow   : True
+grid.color       :   gray
+grid.linestyle   :   :
+grid.linewidth   :   0.5
+figure.dpi       : 100
+savefig.dpi      : 100
+errorbar.capsize : 2
+figure.autolayout : True
